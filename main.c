@@ -2,24 +2,56 @@
 #include <stdio.h>
 #include <string.h>
 
-void 단어의추가화면(){
+void 단어의추가화면() {
     printf("단어의 추가를 하는 화면 입니다.\n");
+    char second_command[100];
+    while (1) {
+        printf("명령어를 입력해주세요>>");
+        fgets(second_command, sizeof(second_command), stdin);
+        second_command[strcspn(second_command, "\n")] = '\0';
+        if (strcmp(second_command, "나가기") == 0) {
+            break;
+        }
+    }
 }
 
-void 암기연습화면(){
+void 암기연습화면() {
     printf("암기 연습을 위한 화면입니다.\n");
+    char second_command[100];
+    while (1) {
+        printf("명령어를 입력해주세요>>");
+        fgets(second_command, sizeof(second_command), stdin);
+        second_command[strcspn(second_command, "\n")] = '\0';
+        if (strcmp(second_command, "나가기") == 0) {
+            break;
+        }
+    }
 }
 
-void 테스트화면(){
+void 테스트화면() {
     printf("테스트를 위한 화면 입니다.\n");
+    char second_command[100];
+    while (1) {
+        printf("명령어를 입력해주세요>>");
+        fgets(second_command, sizeof(second_command), stdin);
+        second_command[strcspn(second_command, "\n")] = '\0';
+        if (strcmp(second_command, "나가기") == 0) {
+            break;
+        }
+    }
 }
 
-void 통계화면(){
+void 통계화면() {
     printf("통계 화면 입니다.\n");
-}
-
-void 프로그램종료(){
-    //프로그램종료
+    char second_command[100];
+    while (1) {
+        printf("명령어를 입력해주세요>>");
+        fgets(second_command, sizeof(second_command), stdin);
+        second_command[strcspn(second_command, "\n")] = '\0';
+        if (strcmp(second_command, "나가기") == 0) {
+            break;
+        }
+    }
 }
 
 void command_execute(char *command){
@@ -44,7 +76,7 @@ void command_execute(char *command){
 int main(){
     char command[1000];
     while(1){
-        printf("이곳은 시작화면 입니다. 명령어를 입력해주세요/n>>");
+        printf("이곳은 시작화면 입니다. 명령어를 입력해주세요\n>>");
         fgets(command,sizeof(command),stdin);
         command[strcspn(command,"\n")]='\0';
 
