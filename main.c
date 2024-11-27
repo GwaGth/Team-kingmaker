@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -17,22 +18,21 @@ int wordCount = 0; // 현재 단어 수
 void addWord();
 void displayWords();
 void saveToFile();
-
-int main() {
-    wordList = (Word*)malloc(MAX_WORDS * sizeof(Word)); // 동적 메모리 할당
-    if (wordList == NULL) {
-        printf("메모리 할당에 실패했습니다!\n");
-        return 1;
-    }
-
+void practiceWord();
+void testWord();
+void statics();
+void manageWord() {
+    int flag = 0;
     int choice;
-
     while (1) {
+        if (flag != 0) {
+            break;
+        }
         printf("\n=== 단어 관리 시스템 ===\n");
         printf("1. 단어 추가\n");
         printf("2. 모든 단어 보기\n");
         printf("3. 파일로 저장\n");
-        printf("4. 종료\n");
+        printf("4. 뒤로가기\n");
         printf("작업을 선택하세요: ");
         scanf_s("%d", &choice);
 
@@ -49,13 +49,13 @@ int main() {
         case 4:
             free(wordList); // 동적 메모리 해제
             printf("프로그램을 종료합니다.\n");
-            return 0;
+            flag = 1;
+            break;
         default:
             printf("잘못된 선택입니다. 다시 입력해주세요.\n");
         }
     }
-    return 0;
-}
+};
 
 // 단어 추가
 void addWord() {
@@ -115,4 +115,113 @@ void saveToFile() {
 
     fclose(file);
     printf("단어가 파일에 성공적으로 저장되었습니다.\n");
+}
+
+// 단어연습
+void practiceWord() {
+    int choice;
+    int flag = 0;
+    while (1) {
+        if (flag == 1) {
+            break;
+        }
+        printf("\n=== 단어 연습 ==\n");
+        printf("1.뒤로가기\n");
+        // 내용추가해야함
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1:
+            printf("뒤로갑니다.\n");
+            flag = 1;
+            break;
+        default:
+            printf("잘못된 선택입니다. 다시 입력해주세요.\n");
+        }
+    }
+}
+
+void testWord() {
+    int choice;
+    int flag = 0;
+    while (1) {
+        if (flag == 1) {
+            break;
+        }
+        printf("\n=== 단어 테스트 ==\n");
+        printf("1.뒤로가기\n");
+        // 내용추가해야함
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1:
+            printf("뒤로갑니다.\n");
+            flag = 1;
+            break;
+        default:
+            printf("잘못된 선택입니다. 다시 입력해주세요.\n");
+        }
+    }
+};
+
+void statics() {
+    int choice;
+    int flag = 0;
+    while (1) {
+        if (flag == 1) {
+            break;
+        }
+        printf("\n=== 통계 ==\n");
+        printf("1.뒤로가기\n");
+        // 내용추가해야함
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1:
+            printf("뒤로갑니다.\n");
+            flag = 1;
+            break;
+        default:
+            printf("잘못된 선택입니다. 다시 입력해주세요.\n");
+        }
+    }
+};
+
+int main() {
+    wordList = (Word*)malloc(MAX_WORDS * sizeof(Word)); // 동적 메모리 할당
+    if (wordList == NULL) {
+        printf("메모리 할당에 실패했습니다!\n");
+        return 1;
+    }
+
+    int choice;
+
+    while (1) {
+        printf("\n=== 시작화면 ===\n");
+        printf("1. 단어 관리\n");
+        printf("2. 단어 연습\n");
+        printf("3. 테스트\n");
+        printf("4. 통계\n");
+        printf("5. 종료\n");
+        printf("작업을 선택하세요: ");
+        scanf_s("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            manageWord();
+            break;
+        case 2:
+            practiceWord();
+            break;
+        case 3:
+            testWord();
+            break;
+        case 4:
+            statics();
+            break;
+        case 5:
+            printf("프로그램을 종료합니다.\n");
+            return 0;
+        default:
+            printf("잘못된 선택입니다. 다시 입력해주세요.\n");
+        }
+    }
+    return 0;
 }
