@@ -126,11 +126,19 @@ void practiceWord() {
             break;
         }
         printf("\n=== 단어 연습 ==\n");
-        printf("1.뒤로가기\n");
+        printf("1.단어연습(한글>영어)\n");
+        printf("2.단어연습(영어>한글)\n");
+        printf("3.뒤로가기\n");
         // 내용추가해야함
         scanf("%d", &choice);
         switch (choice) {
         case 1:
+            practiceWordKtoE();
+            break;
+        case 2:
+            practiceWordEtoK();
+            break;
+        case 3:
             printf("뒤로갑니다.\n");
             flag = 1;
             break;
@@ -139,6 +147,123 @@ void practiceWord() {
         }
     }
 }
+
+int practiceWordKtoE() {
+    FILE *file;
+    char word_for_practice[MAX_LENGTH];  // 한 단어를 저장할 배열
+    char *words_for_practice[MAX_WORDS];      // 단어들을 저장할 배열 (포인터 배열)
+    int word_count = 0;          // 단어 수
+
+    // 파일 열기
+    file = fopen("wordList.txt", "r");  // "input.txt" 파일을 읽기 모드로 열기
+    if (file == NULL) {
+        printf("파일을 열 수 없습니다.\n");
+        return 1;
+    }
+
+    // 단어들을 배열에 저장
+    while (fscanf(file, "%s", word_for_practice) == 1) {
+        // 동적 메모리 할당하여 단어 저장
+        words_for_practice[word_count] = malloc(strlen(word_for_practice) + 1);
+        if (words_for_practice[word_count] == NULL) {
+            printf("메모리 할당 실패\n");
+            return 1;
+        }
+        strcpy(words_for_practice[word_count], word_for_practice);  // 단어를 배열에 복사
+        word_count++;
+
+        // 최대 단어 수에 도달하면 종료
+        if (word_count >= MAX_WORDS) {
+            break;
+        }
+    }
+
+    // 파일 닫기
+    fclose(file);
+
+    //배열을 무작위로 섞는 기능 추가해야함
+
+    // 단어연습 시작
+    printf("\n==단어연습 시작==\n");
+    int correct_count=0;
+    char answerword[MAX_LENGTH];
+    for (int i = 0; i < word_count; i=i+2) {
+        printf("%s\n", words_for_practice[i]);
+        free(words_for_practice[i]);
+        printf("단어뜻:");
+        scanf("%s",&answerword);
+        if(strcmp(answerword,words_for_practice[i+1])==0){
+            correct_count++;
+            printf("정답! %d/%d\n",correct_count,word_count/2);
+        }
+        else{
+            printf("오답! %d/%d\n",correct_count,word_count/2);
+        }
+
+        free(words_for_practice[i+1]); // 동적 할당된 메모리 해제
+    }
+
+    return 0;
+}
+
+int practiceWordEtoK() {
+    FILE *file;
+    char word_for_practice[MAX_LENGTH];  // 한 단어를 저장할 배열
+    char *words_for_practice[MAX_WORDS];      // 단어들을 저장할 배열 (포인터 배열)
+    int word_count = 0;          // 단어 수
+
+    // 파일 열기
+    file = fopen("wordList.txt", "r");  // "input.txt" 파일을 읽기 모드로 열기
+    if (file == NULL) {
+        printf("파일을 열 수 없습니다.\n");
+        return 1;
+    }
+
+    // 단어들을 배열에 저장
+    while (fscanf(file, "%s", word_for_practice) == 1) {
+        // 동적 메모리 할당하여 단어 저장
+        words_for_practice[word_count] = malloc(strlen(word_for_practice) + 1);
+        if (words_for_practice[word_count] == NULL) {
+            printf("메모리 할당 실패\n");
+            return 1;
+        }
+        strcpy(words_for_practice[word_count], word_for_practice);  // 단어를 배열에 복사
+        word_count++;
+
+        // 최대 단어 수에 도달하면 종료
+        if (word_count >= MAX_WORDS) {
+            break;
+        }
+    }
+
+    // 파일 닫기
+    fclose(file);
+
+    //배열을 무작위로 섞는 기능 추가해야함
+
+    // 단어연습 시작
+    printf("\n==단어연습 시작==\n");
+    int correct_count=0;
+    char answerword[MAX_LENGTH];
+    for (int i = 0; i < word_count; i=i+2) {
+        printf("%s\n", words_for_practice[i+1]);
+        free(words_for_practice[i+1]);
+        printf("영단어:");
+        scanf("%s",&answerword);
+        if(strcmp(answerword,words_for_practice[i])==0){
+            correct_count++;
+            printf("정답! %d/%d\n",correct_count,word_count/2);
+        }
+        else{
+            printf("오답! %d/%d\n",correct_count,word_count/2);
+        }
+
+        free(words_for_practice[i]); // 동적 할당된 메모리 해제
+    }
+
+    return 0;
+}
+
 
 void testWord() {
     int choice;
