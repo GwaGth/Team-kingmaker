@@ -1,0 +1,156 @@
+#include <stdio.h> 
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX_WORDS 100
+#define MAX_LENGTH 50
+
+typedef struct {
+    char word[MAX_LENGTH];
+    char meaning[MAX_LENGTH];
+} Word;
+
+Word words[MAX_WORDS];
+int word_count = 0;
+
+// 단어 파일 로드
+void load_words(const char* filename) {
+    FILE* file;
+    fopen_s(&file, filename, "r");
+    if (file == NULL) {
+        printf("파일 %s을(를) 찾을 수 없습니다. 새 파일을 생성합니다.\n", filename);
+        return;
+    }
+    word_count = 0;
+    while (fscanf_s(file, "%s %s", words[word_count].word, (unsigned int)MAX_LENGTH, words[word_count].meaning, (unsigned int)MAX_LENGTH) == 2) {
+        word_count++;
+    }
+    fclose(file);
+    printf("%d개의 단어가 성공적으로 로드되었습니다.\n", word_count);
+}
+
+// 단어 파일 저장
+void save_words(const char* filename) {
+    FILE* file;
+    fopen_s(&file, filename, "w");
+    if (file == NULL) {
+        printf("파일 %s에 저장할 수 없습니다.\n", filename);
+        return;
+    }
+    for (int i = 0; i < word_count; i++) {
+        fprintf(file, "%s %s\n", words[i].word, words[i].meaning);
+    }
+    fclose(file);
+    printf("단어가 성공적으로 저장되었습니다!\n");
+}
+
+// 단어 추가
+void add_word() {
+    if (word_count >= MAX_WORDS) {
+        printf("단어 목록이 가득 찼습니다. 더 이상 단어를 추가할 수 없습니다.\n");
+        return;
+    }
+    char word[MAX_LENGTH], meaning[MAX_LENGTH];
+    printf("단어를 입력하세요: ");
+    scanf_s("%s", word, (unsigned int)MAX_LENGTH);
+    printf("단어의 뜻을 입력하세요: ");
+    scanf_s("%s", meaning, (unsigned int)MAX_LENGTH);
+
+    // 중복 여부 확인
+    for (int i = 0; i < word_count; i++) {
+        if (strcmp(words[i].word, word) == 0) {
+            printf("이미 존재하는 단어입니다!\n");
+            return;
+        }
+    }
+    strcpy_s(words[word_count].word, MAX_LENGTH, word);
+    strcpy_s(words[word_count].meaning, MAX_LENGTH, meaning);
+    word_count++;
+    printf("단어가 성공적으로 추가되었습니다!\n");
+}
+
+// 랜덤 단어 생성 및 뜻 확인
+void random_word() {
+    if (word_count == 0) {
+        printf("현재 단어가 없습니다. 단어를 먼저 추가하세요.\n");
+        return;
+    }
+    srand((unsigned int)time(NULL));
+    int index = rand() % word_count;
+    printf("랜덤 단어: %s\n", words[index].word);
+
+    char user_input[MAX_LENGTH];
+    printf("해당 단어의 뜻을 입력하세요: ");
+    scanf_s("%s", user_input, (unsigned int)MAX_LENGTH);
+
+    if (strcmp(user_input, words[index].meaning) == 0) {
+        printf("정답입니다!\n");
+    } else {
+        printf("오답입니다! 올바른 뜻은: %s\n", words[index].meaning);
+    }
+}
+
+// 난이도 선택 및 파일 로드
+void choose_difficulty() {
+    int difficulty;
+    printf("\n난이도를 선택하세요:\n");
+    printf("1. 초등 단어\n");
+    printf("2. 중등 단어\n");
+    printf("3. 고등 단어\n");
+    printf("선택을 입력하세요: ");
+    scanf_s("%d", &difficulty);
+
+    switch (difficulty) {
+        case 1:
+            load_words("elementary.txt");
+            break;
+        case 2:
+            load_words("middle.txt");
+            break;
+        case 3:
+            load_words("high.txt");
+            break;
+        default:
+            printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
+            break;
+    }
+}
+
+// 메뉴 표시
+void show_menu() {
+    printf("\n=== 단어 암기 시스템 ===\n");
+    printf("1. 단어 추가\n");
+    printf("2. 랜덤 단어 테스트\n");
+    printf("3. 난이도 선택 및 단어 로드\n");
+    printf("4. 저장 후 종료\n");
+    printf("선택을 입력하세요: ");
+}
+
+int main() {
+    const char* default_file = "words.txt";
+
+    int choice;
+    while (1) {
+        show_menu();
+        scanf_s("%d", &choice);
+        switch (choice) {
+            case 1:
+                add_word();
+                break;
+            case 2:
+                random_word();
+                break;
+            case 3:
+                choose_difficulty();
+                break;
+            case 4:
+                save_words(default_file);
+                printf("프로그램이 종료되었습니다.\n");
+                return 0;
+            default:
+                printf("잘못된 선택입니다. 다시 입력하세요.\n");
+        }
+    }
+    return 0;
+}
