@@ -1,2 +1,134 @@
-run 달리다
-sit 앉다
+act 행동하다
+after ~뒤에
+ago ~전에
+angry 화난
+and 그리고
+among ~사이에
+amount 총액
+always 항상
+at ~때에
+bad 나쁜
+become ~이 되다
+because 왜냐하면
+beautiful 아름다운
+behind ~뒤에
+begin 시작하다
+before ~앞에
+between ~의 사이에
+beside ~의 옆에
+bicycle 자전거
+big 큰
+blank 비어있는
+break 깨다
+bring 가져오다
+bright 밝은
+brush 솔
+burn 타다
+build 짓다
+buy 사다
+call ~를 부르다
+calenda 달력
+capital 수도
+carry ~을 나르다
+carpenter 목공
+catch 잡다
+ceiling 천장
+center 중심
+cheap 값싼
+change 변화다
+classmate 급우
+climb 오르다
+clean 깨끗한
+close 닫다
+cold 추운
+come 오다
+cool 시원한
+corner 구석
+cousin 사촌
+count 세다
+cry 울다
+cross 건너다
+cute 귀여운
+dictionary 사전
+diary 일기
+danger 위험
+dark 어두운
+deep 깊은
+dead 조용한
+die 죽다
+dirty 더러운
+draw 그리다
+drive 운전하다
+drink 마시다
+dry 마른
+early 일찍
+echo 메아리
+empty 빈
+enough 충분히
+enjoy ~을 즐기다
+engine 엔진
+example 예시
+exercise 운동
+excuse 용서하다
+excite 흥분시키다
+excellent 뛰어난
+fall 떨어지다
+fair 공평한
+famous 유명한
+fat 뚱뚱한
+fast 빠른
+few 거의 없는
+feel ~을 느끼다
+fine 좋은
+find ~을 발견하다
+fill ~을 채우다
+fight 싸우다
+finish ~을 끝내다
+fix 고치다
+fly 날다
+follow ~을 따라가다
+for ~동안
+forget ~을 잊다
+free 한가한
+fresh 신선한
+from ~로부터
+front 앞
+full 가득 찬
+get ~을 얻다
+give ~을 주다
+glad 즐거운
+glass 유리
+go 가다
+good 좋은
+grass 풀
+group 모임
+grow 자라다
+half 절반
+handle 손잡이
+handsome 잘생긴
+happen 일어나다
+happy 행복한
+hard 어려운
+hate 미워하다
+have 가지고 있다
+hear ~을 듣다
+heavy 무거운
+help ~을 돕다
+high 높은
+hill 언덕
+hit 때리다
+hold 잡다
+hole 구멍
+holiday 휴일
+hope 희망
+hot 뜨거운
+kitchen 부엌
+letter 글자
+million 백만
+nurse 간호사
+office 사무실
+pants 바지
+pilot 조종사
+plant 식물
+shape 모양
+subway 지하철
