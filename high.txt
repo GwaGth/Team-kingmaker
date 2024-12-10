@@ -1,1 +1,393 @@
-
+abort 유산하다
+absurd 불합리한
+accord 일치하다
+accumulate 축적하다
+acquaint 알리다
+acquisition 획득
+adult 성인
+adverse 거꾸로의
+aesthetic 미적인
+allocate 할당하다
+amplify 확대하다
+architecture 건축학
+archive 기록보관소
+assault 습격
+attorney 변호사
+authentic 진짜의
+bankrupt 파산자
+bishop 주교
+blast 돌풍
+breed 기르다
+brew 양조하다
+brute 야수 짐승같은
+bulk 부피
+caption 표제
+cater 음식물을 마련하다
+cathedral 대성당
+chamber 방
+character 성격
+childhood 어린 시절
+chronic 만성의
+climate 기후
+commence 시작하다
+commodity 상품
+compatible 양립할 수 있는
+compel 억지로 ~시키다
+compensate 배상하다
+compile 편찬하다
+component 구성하는 성분
+compound 성분 등을 혼합하다
+comprise 포함하다
+compromise 타협하다
+compulsory 의무적인
+conceive 상상하다
+condemn 나무라다
+confer 주다
+confidence 자신감
+consensus 일치
+consent 승낙하다
+conserve 보존하다
+constitute 구성하다
+constrain 강제하다
+contemporary 현대의
+contend 싸우다
+contradict 반박하다
+convention 관례
+convert 바꾸다
+coordinate 동격의
+corridor 복도
+counterpart 부본
+county 주
+creek 시내
+creep 기다
+currency 통용
+curse 저주
+custody 보호
+cynical 냉소적인
+decent 점잖은
+dedicate 봉납하다
+deficiency 결핍
+deficit 결손
+degrade 지위를 낮추다
+delegate 파견하다
+deliberate 숙고하다
+depict 묘사하다
+deposit 예금
+deprive 빼앗다
+designate 가리키다
+diabetes 당뇨병
+dictate 받아쓰게 하다
+dignity 위엄
+dimension 차원
+discourse 강연
+discriminate 분별하다
+disgust 혐오감
+displace 바꾸어놓다
+dispute 논쟁하다
+disrupt 분열시키다
+distort 찌그러뜨리다
+divine 신의
+dominant 우세한
+dose 1회복용량 투약하다
+draft 초고
+drain 배수하다
+dual 둘의
+elaborate 공들인
+embrace 포옹하다
+emit 방사하다
+emotion 감정
+enforce 실시하다
+enroll 명부에 올리다
+entitle 자격을 주다
+equate 같게하다
+erect 똑바로 선
+estate 재산
+ethical 도덕상의
+ethnic 인종의
+evacuate 비우다
+excitement 신남
+exclusive 배타적인
+executive 집행의
+experiment 실험
+extract 뽑아내다
+extraordinary 이상한
+facilitate 쉽게하다
+faculty 능력
+fatal 치명적인
+fear 공포
+federal 연방의
+feeling 느낌
+fertile 비옥한
+flee 달아나다
+flip 튀기다 홱 움직이다 튀기기
+fluid 유동성의
+flush 왈칵흐르다
+fond 좋아하는
+formula 공식
+foster 기르다
+fraction 분수
+frost 서리
+furious 노하여 펄펄뛰는
+furnish 공급하다
+fuse 신관
+gaze 지켜보다
+glare 번쩍이는 빛
+glimpse 흘끗 봄
+grasp 붙잡다
+gratitude 감사
+guardian 보호자
+gulf 만
+habitat 서식지
+halt 멈춰서다
+haunt 자주가다
+headquarters 본부
+heir 상속인
+hence 그러므로
+heritage 세습 재산
+hook 갈고리
+horn 뿔
+horror 공포
+hostage 볼모
+hostile 반대하는
+hypothesis 가설
+ideology 공리
+illusion 환영
+immense 무한한
+immigrate 이주하다
+implement 기구
+imply 함축하다
+impose 부과하다
+incline 기울이다
+incorporate 합동시키다
+index 색인
+induce 꾀다
+inevitable 피할 수 없는
+infect 감염시키다
+infer 추론하다
+inflate 부풀게 하다
+inherent 생태의
+inhibit 금하다
+inquire 묻다
+integrate 통합하다
+intervene 사이에 들다
+intrigue 음모
+joke 농담
+judicial 사법의
+keen 날카로운
+knot 매듭
+legislate 법률을 제정하다
+legitimate 합법의
+literal 문자의
+lone 혼자의
+lump 덩어리
+magnificent 장대한
+manifest 명백히 하다
+manipulate 다루다
+meanwhile 그동안
+medieval 중세의
+memory 기억
+mere 단순한
+merge 합병하다
+metropolitan 수도권
+migrate 이주하다
+mock 조롱하다
+moderate 절제하는
+modest 겸손한
+modify 변경하다
+molecule 분자
+monument 기념비
+mood 기분
+mortal 죽을운명의
+mutual 상호의
+naive 소박한
+nanny 유모
+nasty 불쾌한
+nominate 추천하다
+nonetheless 역시
+norm 표준
+numerous 수많은
+obsess 늘러붙다
+orbit 궤도
+overwhelm 압도하다
+parallel 평행의
+parents 부모
+parliament 의회
+particle 입자
+patrol 순회
+pave 포장하다
+peasant 농부
+persist 고집하다
+personality 인격
+perspective 원근법의
+phase 국면
+pinch 꼬집다
+pitch 던지다
+pleasure 기쁨
+polish 윤내다
+portion 부분
+preach 설교하다
+precede -에 앞서다
+predator 약탈자
+prejudice 선입관
+premier 국무 총리
+presume 가정하다
+prevail 우세하다
+prior 앞의
+privilege 특권
+procedure 진행
+profile 인물 소개
+prohibit 금하다
+prominent 중요한
+prompt 재빠른
+proportion 비율
+prosper 번영하다
+provoke 화나게 하다
+questionnaire 질문표
+quote 인용하다
+rage 격노
+rally 규합하다
+rational 합리적인
+rear 뒤
+rebel 반역자
+recruit 신병
+refine 정제하다
+regret 후회
+regulate 규정하다
+reinforce 보강하다
+relative 친척
+relevant 관련된
+reluctant 마음이 내키지 않는
+reputation 평판
+reside 거주하다
+resign 사임하다
+respective 각각의
+restrain 제지하다
+restrict 제한하다
+resume 다시 잡다
+retail 소매
+retain 보유하다
+retreat 후퇴
+revenge 복수
+reverse 역
+rid 면하게하다
+ridiculous 어리석은
+riot 폭동
+roar 으르렁거리다
+rod 막대
+rot 썩다
+sack 마대
+salon 객실
+scarce 부족한
+scatter 뿔뿔이 흩어 버리다
+screw 나사
+scrub 숲
+sculpture 조각
+seize 붙잡다
+sentiment 정서
+sequence 연속
+shame 수치심
+shelter 피난처
+shield 방패
+shrink 줄어들다
+simulate 흉내내다
+simultaneous 동시에 일어나는
+slaughter 도살
+slight 약간의
+slope 비탈
+sneak 몰래 움직이다
+sniff 코를 킁킁거리다
+span 한 뼘
+spectacle 광경
+spectrum 스펙트럼
+sphere 구
+spill 엎지르다
+spit 침을 뱉다
+spite 악의
+splash 튀기다
+split 쪼개다
+spouse 배우자
+stack 낟가리
+starve 굶어 죽다
+statistic 통계의
+steep 가파른
+stiff 굳은
+stimulate 자극하다
+stir 휘젓다
+stitch 한 바늘
+strain 잡아당기다
+strip 벗기다
+stroke 한번치기
+subjective 주관의
+submit 복종시키다
+subscribe 서명승락하다
+substance 물질
+substantial 실체의
+substitute 대용하다
+subtle 미묘한
+suck 빨다
+suite 수행원
+supervise 감독하다
+supplement 부록
+surrender 넘겨주다
+suspend 매달다
+sustain 떠받치다
+swear 맹세하다
+sweep 청소하다
+swell 부풀다
+swift 빠른
+tease 괴롭히다
+teen 십대
+telegraph 전신
+temporary 일시적인
+tempt 유혹하다
+tenant 차지인
+terminate 끝내다
+testify 증명하다
+therapy 치료법
+thread 실
+tick 시계소리
+timber 재목
+torture 고문
+transact 처리하다
+transition 변천
+transmit 보내다
+treaty 조약
+tremendous 무서운
+trigger 방아쇠
+trim 산뜻한 정돈하다
+turnover 전복
+undergo 받다
+underlie -의 밑에 있다
+undermine -밑을 파다
+undertake 떠맡다
+utilize -을 이용하다
+utter 전적인
+vague 막연한
+valid 유효한
+vanish 자취를 감추다
+verbal 말의
+vertical 수직의
+vessel 그릇
+veteran 배태랑
+veterinarian 수의사
+vice 악덕
+vigorous 활기 있는
+virgin 처녀
+virtual 허상의
+virtue 선
+vital 생명의
+vivid 생기있는
+vocation 천직
+wagon 짐마차
+wander 헤매다
+warehouse 창고
+warrant 보증
+warrior 병사
+weave 짜다
+weed 잡초
+whip 채찍
+wicked 사악한
+widow 미망인
+withdraw 물러나다
+wreck 난파
+yield 산출하다
