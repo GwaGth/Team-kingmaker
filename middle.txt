@@ -1,89 +1,105 @@
-act 행동하다
 after ~뒤에
 ago ~전에
-angry 화난
-and 그리고
+always 항상
 among ~사이에
 amount 총액
-always 항상
+amount 총액
+and 그리고
+angry 화난
+art 예술
 at ~때에
+author 저자
 bad 나쁜
-become ~이 되다
-because 왜냐하면
 beautiful 아름다운
-behind ~뒤에
-begin 시작하다
+because 왜냐하면
+become ~이 되다
 before ~앞에
-between ~의 사이에
+begin 시작하다
+behind ~뒤에
 beside ~의 옆에
+between ~의 사이에
 bicycle 자전거
 big 큰
+billl 지폐
 blank 비어있는
 break 깨다
-bring 가져오다
 bright 밝은
+bring 가져오다
 brush 솔
-burn 타다
 build 짓다
+burn 타다
 buy 사다
-call ~를 부르다
 calenda 달력
+call ~를 부르다
 capital 수도
-carry ~을 나르다
 carpenter 목공
+carry ~을 나르다
 catch 잡다
 ceiling 천장
 center 중심
-cheap 값싼
 change 변화다
+cheap 값싼
 classmate 급우
-climb 오르다
 clean 깨끗한
+climb 오르다
 close 닫다
 cold 추운
 come 오다
+compass 나침반
 cool 시원한
 corner 구석
-cousin 사촌
 count 세다
-cry 울다
+cousin 사촌
+credit 신용거래
+credit card 신용카드
 cross 건너다
+cry 울다
+culture 문화
 cute 귀여운
-dictionary 사전
-diary 일기
 danger 위험
 dark 어두운
-deep 깊은
 dead 조용한
+deep 깊은
+degree 도
+diary 일기
+dictionary 사전
 die 죽다
 dirty 더러운
+disease 질병
 draw 그리다
-drive 운전하다
 drink 마시다
+drive 운전하다
 dry 마른
 early 일찍
 echo 메아리
+economics 경제학
+electircity 전기
 empty 빈
-enough 충분히
-enjoy ~을 즐기다
 engine 엔진
+enjoy ~을 즐기다
+enough 충분히
 example 예시
-exercise 운동
-excuse 용서하다
-excite 흥분시키다
 excellent 뛰어난
-fall 떨어지다
+exchange 교환
+excite 흥분시키다
+excuse 용서하다
+exercise 운동
+expense 비용
 fair 공평한
+fall 떨어지다
 famous 유명한
-fat 뚱뚱한
+fare 요금
 fast 빠른
-few 거의 없는
+fat 뚱뚱한
 feel ~을 느끼다
-fine 좋은
-find ~을 발견하다
-fill ~을 채우다
+fever 열
+few 거의 없는
 fight 싸우다
+fill ~을 채우다
+find ~을 발견하다
+fine 좋은
 finish ~을 끝내다
+firework 폭죽act 행동하다
 fix 고치다
 fly 날다
 follow ~을 따라가다
@@ -94,15 +110,18 @@ fresh 신선한
 from ~로부터
 front 앞
 full 가득 찬
+gas 기체
 get ~을 얻다
 give ~을 주다
 glad 즐거운
 glass 유리
 go 가다
 good 좋은
+grade 등급
 grass 풀
 group 모임
 grow 자라다
+gun 총
 half 절반
 handle 손잡이
 handsome 잘생긴
@@ -122,13 +141,43 @@ hole 구멍
 holiday 휴일
 hope 희망
 hot 뜨거운
+inventor 발명가
+iron 철
+jupiter 목서
 kitchen 부엌
 letter 글자
+level 수준
+magazine 잡지
+magnet 자석
+mars 화성
+metal 금속
+microscope 현미경
 million 백만
 nurse 간호사
 office 사무실
+oxygen 산소
 pants 바지
+pet 애완동물
+photograph 사진
 pilot 조종사
 plant 식물
+poem 시
+poison 독
+price 값
+product 상품
+research 조사
+sale 판매
+saturn 토성
+science 과학
+scope 범위
 shape 모양
+statue 조각상
 subway 지하철
+surgery 수술
+tale 이야기
+technology 기술
+telescope 망원경
+temperature 온도
+vacuum 진공
+venus 금성
+weight 몸무게
