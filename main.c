@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_WORDS 100   // 최대 단어 수
+#define MAX_WORDS 2000   // 최대 단어 수
 #define MAX_LENGTH 100  // 단어의 최대 길이
 
 typedef struct Word {
@@ -124,8 +124,8 @@ void edit_word() {
     }
     printf("새 뜻을 입력하세요: ");
     scanf_s("%s", tempMeaning, (unsigned)_countof(tempMeaning));
-    strcpy_s(wordList[index-1].word, MAX_LENGTH, tempWord);
-    strcpy_s(wordList[index-1].meaning, MAX_LENGTH, tempMeaning);
+    strcpy_s(wordList[index - 1].word, MAX_LENGTH, tempWord);
+    strcpy_s(wordList[index - 1].meaning, MAX_LENGTH, tempMeaning);
     printf("단어가 수정되었습니다.\n");
 }
 
@@ -178,8 +178,11 @@ void choose_difficulty() {
     printf("2. 중등 단어\n");
     printf("3. 고등 단어\n");
     printf("4. 사용자 저장 단어\n");
+    printf("5. 초기화\n");
     printf("선택을 입력하세요: ");
     scanf_s("%d", &difficulty);
+    system("cls");
+
 
     switch (difficulty) {
     case 1:
@@ -194,10 +197,12 @@ void choose_difficulty() {
     case 4:
         load_words("wordlist.txt");
         break;
-        default
-            :
-                printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
-                break;
+    case 5:
+        word_count = 0;
+        printf("초기화 되었습니다.");
+    default:
+        printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
+        break;
     }
 };
 
@@ -233,6 +238,7 @@ void manageWord() {
         }
         show_menu_manageWord();
         scanf_s("%d", &choice);
+        system("cls");
         switch (choice) {
         case 1:
             addWord();
@@ -281,6 +287,8 @@ void addWord() {
 
     printf("단어의 의미를 입력하세요: ");
     scanf_s("%s", tempMeaning, (unsigned)_countof(tempMeaning));
+    system("cls");
+
 
     // 단어를 목록에 추가
     strcpy_s(wordList[wordCount].word, MAX_LENGTH, tempWord);
@@ -327,6 +335,7 @@ void practiceWord() {
     while (1) {
         show_menu_practice();
         scanf_s("%d", &choice);
+        system("cls");
         switch (choice) {
         case 1:
             add_word();
@@ -361,6 +370,7 @@ void testWord() {
         printf("1.뒤로가기\n");
         // 내용추가해야함
         scanf("%d", &choice);
+        system("cls");
         switch (choice) {
         case 1:
             printf("뒤로갑니다.\n");
@@ -383,6 +393,7 @@ void statics() {
         printf("1.뒤로가기\n");
         // 내용추가해야함
         scanf("%d", &choice);
+        system("cls");
         switch (choice) {
         case 1:
             printf("뒤로갑니다.\n");
@@ -412,6 +423,7 @@ int main() {
         printf("5. 종료\n");
         printf("작업을 선택하세요: ");
         scanf_s("%d", &choice);
+        system("cls");
 
         switch (choice) {
         case 1:
