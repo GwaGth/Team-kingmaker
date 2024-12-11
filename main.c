@@ -100,6 +100,53 @@ void add_word() {
     word_count++;
     printf("단어가 성공적으로 추가되었습니다!\n");
 };
+//단어 수정
+void edit_word() {
+    int index;
+    char tempWord[MAX_LENGTH], tempMeaning[MAX_LENGTH];
+    printf("수정할 단어의 번호를 입력하세요 (1 ~ %d): ", wordCount);
+    scanf("%d", &index);
+
+    if (index < 1 || index > wordCount) {
+        printf("잘못된 번호입니다.\n");
+        return;
+    }
+
+    printf("새 단어를 입력하세요: ");
+    scanf_s("%s", tempWord, (unsigned)_countof(tempWord));
+
+    // 중복 단어 확인
+    for (int i = 0; i < wordCount; i++) {
+        if (strcmp(wordList[i].word, tempWord) == 0) {
+            printf("이미 존재하는 단어입니다. 추가할 수 없습니다.\n");
+            return;
+        }
+    }
+    printf("새 뜻을 입력하세요: ");
+    scanf_s("%s", tempMeaning, (unsigned)_countof(tempMeaning));
+    strcpy_s(wordList[index-1].word, MAX_LENGTH, tempWord);
+    strcpy_s(wordList[index-1].meaning, MAX_LENGTH, tempMeaning);
+    printf("단어가 수정되었습니다.\n");
+}
+
+//단어 삭제
+void delete_word() {
+    int index;
+    printf("삭제할 단어의 번호를 입력하세요 (1 ~ %d): ", wordCount);
+    scanf("%d", &index);
+
+    if (index < 1 || index > wordCount) {
+        printf("잘못된 번호입니다.\n");
+        return;
+    }
+
+    for (int i = index - 1; i < wordCount - 1; i++) {
+        strcpy(wordList[i].word, wordList[i + 1].word);
+        strcpy(wordList[i].meaning, wordList[i + 1].meaning);
+    }
+    wordCount--;
+    printf("단어가 삭제되었습니다.\n");
+}
 
 // 랜덤 단어 생성 및 뜻 확인
 void random_word() {
@@ -147,10 +194,10 @@ void choose_difficulty() {
     case 4:
         load_words("wordlist.txt");
         break;
-    default
-        :
-        printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
-        break;
+        default
+            :
+                printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
+                break;
     }
 };
 
@@ -169,8 +216,10 @@ void show_menu_manageWord() {
     printf("\n=== 단어 관리 시스템 ===\n");
     printf("1. 단어 추가\n");
     printf("2. 모든 단어 보기\n");
-    printf("3. 파일로 저장\n");
-    printf("4. 뒤로가기\n");
+    printf("3. 단어 수정\n");
+    printf("4. 단어 삭제\n");
+    printf("5. 파일로 저장\n");
+    printf("6. 뒤로가기\n");
     printf("작업을 선택하세요: ");
 };
 
@@ -192,9 +241,15 @@ void manageWord() {
             displayWords();
             break;
         case 3:
-            saveToFile();
+            edit_word();
             break;
         case 4:
+            delete_word();
+            break;
+        case 5:
+            saveToFile();
+            break;
+        case 6:
             printf("프로그램을 종료합니다.\n");
             flag = 1;
             break;
