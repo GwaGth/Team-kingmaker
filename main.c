@@ -19,6 +19,13 @@ typedef struct {
 } Wordforwords;
 
 Wordforwords words[MAX_WORDS];
+
+typedef struct {
+    char word[MAX_LENGTH];
+    char meaning[MAX_WORDS];
+}wordfortest;
+
+wordfortest testword[MAX_WORDS];
 int word_count = 0;
 int wordCount = 0; // 현재 단어 수
 int elementary_flag = 0;
@@ -175,6 +182,18 @@ void random_word() {
     }
 };
 
+//test용 랜덤 단어 생성
+void random_word_test() {
+    if (word_count == 0) {
+        printf("현재 단어가 없습니다. 단어를 먼저 추가하세요.\n");
+        return;
+    }
+    srand((unsigned int)time(NULL));
+    int temp;
+    int rn;
+   
+}
+
 // 난이도 선택 및 파일 로드
 void choose_difficulty() {
     int difficulty;
@@ -253,6 +272,7 @@ void word_flag() {
     if (isnothing_flag == 0) {
         printf("없음");
     }
+    printf("\n");
 }
 
 //단어관리시스템
@@ -402,22 +422,76 @@ void practiceWord() {
 void show_menu_test() {
     printf("\n=== 단어 시험 ===\n");
     printf("1. 연습한 내용 시험보기\n");
-    printf("2. 선택한 단계 시험보기\n");
-    printf("3. 시험할 단어보기\n");
-    printf("4. 뒤로가기\n");
+    printf("2. 선택한 단계 시험보기\n");;
+    printf("3. 뒤로가기\n");
     printf("작업을 선택하세요: ");
+};
+
+void show_choose_testnumber() {
+    word_flag();
+    printf("\n몇개의 단어를 시험보겠습니까? (최대 : %d)\n", word_count);
+    printf("1. 10개\n");
+    printf("2. 20개\n");
+    printf("3. 50개\n");
+    printf("4. 사용자 지정\n");
+    printf("작업을 선택하세요: ");
+};
+
+void choose_testnumber() {
+    int choice1;
+    int testnumber;
+    while (1) {
+        show_choose_testnumber();
+        scanf("%d", &choice1);
+        system("cls");
+        switch (choice1) {
+        case 1:
+            testnumber = 10;
+            if (word_count < testnumber) {
+                testnumber = word_count;
+            }
+            for (int i = 0; i < testnumber; i++) {
+                //단어테스트
+            }
+            //정답률 출력
+            break;
+        case 2:
+            testnumber = 20;
+            if (word_count < testnumber) {
+                testnumber = word_count;
+            }
+            for (int i = 0; i < testnumber; i++) {
+                //단어테스트
+            }
+            //정답률 출력
+            break;
+        case 3:
+            testnumber = 50;
+            if (word_count < testnumber) {
+                testnumber = word_count;
+            }
+            for (int i = 0; i < testnumber; i++) {
+                //단어테스트
+            }
+            //정답률 출력
+            break;
+        }
+    }
 }
 
 void testWord() {
     int choice;
     while (1) {
-        printf("\n=== 단어 테스트 ==\n");
-        printf("1.뒤로가기\n");
-        // 내용추가해야함
+        show_menu_test();
         scanf("%d", &choice);
         system("cls");
         switch (choice) {
         case 1:
+            show_choose_testnumber();
+            break;
+        case 2:
+            //선택 단계시험
+        case 3:
             printf("뒤로갑니다.\n");
             return 0;
         default:
