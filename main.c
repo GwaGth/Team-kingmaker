@@ -21,6 +21,10 @@ typedef struct {
 Wordforwords words[MAX_WORDS];
 int word_count = 0;
 int wordCount = 0; // 현재 단어 수
+int elementary_flag = 0;
+int middle_flag = 0;
+int high_flag = 0;
+int wordlist_flag = 0;
 
 // 함수 선언
 void addWord();
@@ -29,6 +33,7 @@ void saveToFile();
 void practiceWord();
 void testWord();
 void statics();
+void word_flag();
 
 //단어파일로드
 void load_words(const char* filename) {
@@ -187,19 +192,28 @@ void choose_difficulty() {
     switch (difficulty) {
     case 1:
         load_words("elementary.txt");
+        elementary_flag = 1;
         break;
     case 2:
         load_words("middle.txt");
+        middle_flag = 1;
         break;
     case 3:
         load_words("high.txt");
+        high_flag = 1;
         break;
     case 4:
         load_words("wordlist.txt");
+        wordlist_flag = 1;
         break;
     case 5:
         word_count = 0;
+        elementary_flag = 0;
+        middle_flag = 0;
+        high_flag = 0;
+        wordlist_flag = 0;
         printf("초기화 되었습니다.");
+        break;
     default:
         printf("잘못된 선택입니다. 메인 메뉴로 돌아갑니다.\n");
         break;
@@ -212,8 +226,33 @@ void show_menu_practice() {
     printf("1. 단어 추가\n");
     printf("2. 랜덤 단어 테스트\n");
     printf("3. 난이도 선택 및 단어 로드\n");
-    printf("4. 저장 후 종료\n");
+    printf("4. 현재 추가된 단어 보기\n");
+    printf("5. 저장 후 종료\n");
     printf("선택을 입력하세요: ");
+}
+//추가된 단어 
+void word_flag() {
+    int isnothing_flag = 0;
+    printf("추가된 단계들: ");
+    if (elementary_flag == 1) {
+        printf("초등 단어 ");
+        isnothing_flag = 1;
+    }
+    if (elementary_flag == 1) {
+        printf("중등 단어 ");
+        isnothing_flag = 1;
+    }
+    if (elementary_flag == 1) {
+        printf("고등 단어 ");
+        isnothing_flag = 1;
+    }
+    if (wordlist_flag == 1) {
+        printf("사용자 지정 단어 ");
+        isnothing_flag = 1;
+    }
+    if (isnothing_flag == 0) {
+        printf("없음");
+    }
 }
 
 //단어관리시스템
@@ -347,6 +386,9 @@ void practiceWord() {
             choose_difficulty();
             break;
         case 4:
+            word_flag();
+            break;
+        case 5:
             save_words(default_file);
             printf("프로그램이 종료되었습니다.\n");
             return 0;
@@ -357,15 +399,18 @@ void practiceWord() {
     return 0;
 };
 
-
+void show_menu_test() {
+    printf("\n=== 단어 시험 ===\n");
+    printf("1. 연습한 내용 시험보기\n");
+    printf("2. 선택한 단계 시험보기\n");
+    printf("3. 시험할 단어보기\n");
+    printf("4. 뒤로가기\n");
+    printf("작업을 선택하세요: ");
+}
 
 void testWord() {
     int choice;
-    int flag = 0;
     while (1) {
-        if (flag == 1) {
-            break;
-        }
         printf("\n=== 단어 테스트 ==\n");
         printf("1.뒤로가기\n");
         // 내용추가해야함
@@ -374,8 +419,7 @@ void testWord() {
         switch (choice) {
         case 1:
             printf("뒤로갑니다.\n");
-            flag = 1;
-            break;
+            return 0;
         default:
             printf("잘못된 선택입니다. 다시 입력해주세요.\n");
         }
@@ -384,11 +428,7 @@ void testWord() {
 
 void statics() {
     int choice;
-    int flag = 0;
     while (1) {
-        if (flag == 1) {
-            break;
-        }
         printf("\n=== 통계 ==\n");
         printf("1.뒤로가기\n");
         // 내용추가해야함
@@ -397,8 +437,7 @@ void statics() {
         switch (choice) {
         case 1:
             printf("뒤로갑니다.\n");
-            flag = 1;
-            break;
+            return 0;
         default:
             printf("잘못된 선택입니다. 다시 입력해주세요.\n");
         }
