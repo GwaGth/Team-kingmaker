@@ -6,11 +6,13 @@
 
 #define MAX_WORDS 2000   // 최대 단어 수
 #define MAX_LENGTH 100  // 단어의 최대 길이
+#define FILENAME "statics.txt"
 
 typedef struct Word {
     char word[MAX_LENGTH];   // 단어
     char meaning[MAX_LENGTH]; // 의미
 } Word;
+
 
 Word* wordList;  // 동적으로 할당된 단어 목록
 typedef struct {
@@ -25,6 +27,7 @@ typedef struct {
     char meaning[MAX_WORDS];
 }wordfortest;
 
+
 wordfortest testword[MAX_WORDS];
 int word_count = 0;
 int wordCount = 0; // 현재 단어 수
@@ -32,8 +35,10 @@ int elementary_flag = 0;
 int middle_flag = 0;
 int high_flag = 0;
 int wordlist_flag = 0;
-int totaltestnumber = 0;
-int totalcorrectnumber = 0;
+int total_practice_number = 0;
+int total_practice_correct = 0;
+int total_test_number = 0;
+int total_test_correct = 0;
 
 // 함수 선언
 void addWord();
@@ -73,6 +78,52 @@ void load_words_manage(const char* filename) {
     fclose(file);
     printf("총 %d개의 단어가 성공적으로 로드되었습니다.\n", wordCount);
 };
+
+void show_statics(const int* filename) {
+    FILE* file = fopen(FILENAME, "r");
+    if (file == NULL) {
+        printf("파일 %s을(를) 찾을 수 없습니다. \n", filename);
+        return;
+    }
+    
+    int staticnumber[4];
+    for (int i = 0; i < 4; i++) {
+        fscanf(file, "%d", &staticnumber[i]);
+    }
+    fclose(file);
+    double practice_correct = (double)staticnumber[0] / (double)staticnumber[1];
+    double test_correct = (double)staticnumber[2] / (double)staticnumber[3];
+    printf("연습모드 정답률: %.2lf%%\n연습한 단어수: %d\n테스트 정답률: %.2lf%%\n테스트한 단어수: %d\n", practice_correct * 100, staticnumber[1], test_correct * 100, staticnumber[3]);
+
+}
+
+void updateStatics(int position, int new_value) {
+    
+    FILE* file = fopen(FILENAME, "r+");  // 파일 열기 (읽기/쓰기 모드)
+    if (file == NULL) {
+        printf("파일을 열 수 없습니다.\n");
+        return;
+    }
+
+    int numbers[4];  // 파일에서 읽을 숫자 배열
+
+    // 파일에서 기존 숫자 읽기
+    for (int i = 0; i < 4; i++) {
+        fscanf(file, "%d", &numbers[i]);
+    }
+
+    // 지정된 위치의 숫자 수정
+    numbers[position - 1] = numbers[position - 1] + new_value;
+
+    // 파일의 처음으로 돌아가서 수정된 숫자 저장
+    rewind(file);
+    for (int i = 0; i < 4; i++) {
+        fprintf(file, "%d ", numbers[i]);
+    }
+
+    // 파일 닫기
+    fclose(file);
+}
 
 // 단어 파일 저장
 void save_words(const char* filename) {
@@ -177,9 +228,12 @@ void random_word() {
 
     if (strcmp(user_input, words[index].meaning) == 0) {
         printf("정답입니다!\n");
+        total_practice_correct++;
+        total_practice_number++;
     }
     else {
         printf("오답입니다! 올바른 뜻은: %s\n", words[index].meaning);
+        total_practice_number++;
     }
 };
 
@@ -214,12 +268,12 @@ void random_word_test(int number) {
 
         if (strcmp(user_input, words[num].meaning) == 0) {
             printf("정답입니다!\n");
-            totalcorrectnumber++;
-            totaltestnumber++;
+            total_test_correct++;
+            total_test_number++;
         }
         else {
             printf("오답입니다! 올바른 뜻은: %s\n", words[num].meaning);
-            totaltestnumber++;
+            total_test_number++;
         }
     }
     
@@ -305,7 +359,6 @@ void word_flag() {
     if (isnothing_flag == 0) {
         printf("없음");
     }
-    printf("\n");
 }
 
 //단어관리시스템
@@ -443,6 +496,10 @@ void practiceWord() {
             break;
         case 5:
             save_words(default_file);
+            updateStatics(1, total_practice_correct);
+            updateStatics(2, total_practice_number);
+            total_practice_correct = 0;
+            total_practice_number = 0;
             printf("프로그램이 종료되었습니다.\n");
             return 0;
         default:
@@ -455,8 +512,7 @@ void practiceWord() {
 void show_menu_test() {
     printf("\n=== 단어 시험 ===\n");
     printf("1. 연습한 내용 시험보기\n");
-    printf("2. 선택한 단계 시험보기\n");
-    printf("3. 뒤로가기\n");
+    printf("2. 뒤로가기\n");
     printf("작업을 선택하세요: ");
 };
 
@@ -486,7 +542,11 @@ void choose_testnumber() {
                 testnumber = word_count;
             }
             random_word_test(testnumber);
-            //정답률 출력
+            printf("\n정답률: %d/%d\n\n",total_test_correct,total_test_number);
+            updateStatics(3, total_test_correct);
+            updateStatics(4, total_test_number);
+            total_test_correct = 0;
+            total_test_number = 0;
             break;
         case 2:
             testnumber = 20;
@@ -494,7 +554,11 @@ void choose_testnumber() {
                 testnumber = word_count;
             }
             random_word_test(testnumber);
-            //정답률 출력
+            printf("\n정답률: %d/%d\n\n", total_test_correct, total_test_number);
+            updateStatics(3, total_test_correct);
+            updateStatics(4, total_test_number);
+            total_test_correct = 0;
+            total_test_number = 0;
             break;
         case 3:
             testnumber = 50;
@@ -502,7 +566,11 @@ void choose_testnumber() {
                 testnumber = word_count;
             }
             random_word_test(testnumber);
-            //정답률 출력
+            printf("\n정답률: %d/%d\n\n", total_test_correct, total_test_number);
+            updateStatics(3, total_test_correct);
+            updateStatics(4, total_test_number);
+            total_test_correct = 0;
+            total_test_number = 0;
             break;
         case 4:
             printf("테스트 볼 단어 수를 입력하세요: ");
@@ -511,7 +579,11 @@ void choose_testnumber() {
                 testnumber = word_count;
             }
             random_word_test(testnumber);
-            //정답률 출력
+            printf("\n정답률: %d/%d\n\n", total_test_correct, total_test_number);
+            updateStatics(3, total_test_correct);
+            updateStatics(4, total_test_number);
+            total_test_correct = 0;
+            total_test_number = 0;
             break;
         case 5:
             printf("뒤로갑니다.");
@@ -533,8 +605,6 @@ void testWord() {
             choose_testnumber();
             break;
         case 2:
-            //선택 단계시험
-        case 3:
             printf("뒤로갑니다.\n");
             return 0;
         default:
@@ -547,8 +617,8 @@ void statics() {
     int choice;
     while (1) {
         printf("\n=== 통계 ==\n");
-        printf("1.뒤로가기\n");
-        // 내용추가해야함
+        show_statics("statics.txt");
+        printf("\n1.뒤로가기\n");
         scanf("%d", &choice);
         system("cls");
         switch (choice) {
