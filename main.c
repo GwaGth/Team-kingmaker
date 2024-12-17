@@ -32,6 +32,8 @@ int elementary_flag = 0;
 int middle_flag = 0;
 int high_flag = 0;
 int wordlist_flag = 0;
+int totaltestnumber = 0;
+int totalcorrectnumber = 0;
 
 // 함수 선언
 void addWord();
@@ -50,7 +52,6 @@ void load_words(const char* filename) {
         printf("파일 %s을(를) 찾을 수 없습니다. 새 파일을 생성합니다.\n", filename);
         return;
     }
-    word_count = 0;
     while (fscanf_s(file, "%s %s", words[word_count].word, (unsigned int)MAX_LENGTH, words[word_count].meaning, (unsigned int)MAX_LENGTH) == 2) {
         word_count++;
     }
@@ -183,16 +184,48 @@ void random_word() {
 };
 
 //test용 랜덤 단어 생성
-void random_word_test() {
+void random_word_test(int number) {
     if (word_count == 0) {
         printf("현재 단어가 없습니다. 단어를 먼저 추가하세요.\n");
         return;
     }
-    srand((unsigned int)time(NULL));
+    int* arr;
+    arr = (int*)malloc(sizeof(int) * number);
+    for (int i = 0; i < word_count; i++) {
+        arr[i] = i;
+    }
+    srand(time(NULL));
     int temp;
     int rn;
-   
-}
+    for (int i = 0; i < word_count - 1; i++)
+    {
+        rn = rand() % (word_count - i) + i;    // i 부터 num-1 사이에 임의의 정수 생성
+        temp = arr[i];
+        arr[i] = arr[rn];
+        arr[rn] = temp;
+    }
+    for (int i = 0; i < number; i++) {
+        int num = arr[i];
+        printf("랜덤 단어: %s\n", words[num].meaning);
+
+        char user_input[MAX_LENGTH];
+        printf("해당 단어의 뜻을 입력하세요: ");
+        scanf_s("%s", user_input, (unsigned int)MAX_LENGTH);
+
+        if (strcmp(user_input, words[num].meaning) == 0) {
+            printf("정답입니다!\n");
+            totalcorrectnumber++;
+            totaltestnumber++;
+        }
+        else {
+            printf("오답입니다! 올바른 뜻은: %s\n", words[num].meaning);
+            totaltestnumber++;
+        }
+    }
+    
+
+
+};
 
 // 난이도 선택 및 파일 로드
 void choose_difficulty() {
@@ -257,11 +290,11 @@ void word_flag() {
         printf("초등 단어 ");
         isnothing_flag = 1;
     }
-    if (elementary_flag == 1) {
+    if (middle_flag == 1) {
         printf("중등 단어 ");
         isnothing_flag = 1;
     }
-    if (elementary_flag == 1) {
+    if (high_flag == 1) {
         printf("고등 단어 ");
         isnothing_flag = 1;
     }
@@ -422,20 +455,22 @@ void practiceWord() {
 void show_menu_test() {
     printf("\n=== 단어 시험 ===\n");
     printf("1. 연습한 내용 시험보기\n");
-    printf("2. 선택한 단계 시험보기\n");;
+    printf("2. 선택한 단계 시험보기\n");
     printf("3. 뒤로가기\n");
     printf("작업을 선택하세요: ");
 };
 
 void show_choose_testnumber() {
     word_flag();
-    printf("\n몇개의 단어를 시험보겠습니까? (최대 : %d)\n", word_count);
+    printf("\n몇개의 단어를 시험보겠습니까? (총 : %d개)\n", word_count);
     printf("1. 10개\n");
     printf("2. 20개\n");
     printf("3. 50개\n");
     printf("4. 사용자 지정\n");
+    printf("5. 뒤로가기\n");
     printf("작업을 선택하세요: ");
 };
+
 
 void choose_testnumber() {
     int choice1;
@@ -450,9 +485,7 @@ void choose_testnumber() {
             if (word_count < testnumber) {
                 testnumber = word_count;
             }
-            for (int i = 0; i < testnumber; i++) {
-                //단어테스트
-            }
+            random_word_test(testnumber);
             //정답률 출력
             break;
         case 2:
@@ -460,9 +493,7 @@ void choose_testnumber() {
             if (word_count < testnumber) {
                 testnumber = word_count;
             }
-            for (int i = 0; i < testnumber; i++) {
-                //단어테스트
-            }
+            random_word_test(testnumber);
             //정답률 출력
             break;
         case 3:
@@ -470,14 +501,26 @@ void choose_testnumber() {
             if (word_count < testnumber) {
                 testnumber = word_count;
             }
-            for (int i = 0; i < testnumber; i++) {
-                //단어테스트
-            }
+            random_word_test(testnumber);
             //정답률 출력
+            break;
+        case 4:
+            printf("테스트 볼 단어 수를 입력하세요: ");
+            scanf("%d", &testnumber);
+            if (word_count < testnumber) {
+                testnumber = word_count;
+            }
+            random_word_test(testnumber);
+            //정답률 출력
+            break;
+        case 5:
+            printf("뒤로갑니다.");
+            return 0;
             break;
         }
     }
 }
+
 
 void testWord() {
     int choice;
@@ -487,7 +530,7 @@ void testWord() {
         system("cls");
         switch (choice) {
         case 1:
-            show_choose_testnumber();
+            choose_testnumber();
             break;
         case 2:
             //선택 단계시험
