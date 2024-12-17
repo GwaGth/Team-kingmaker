@@ -260,7 +260,7 @@ void random_word_test(int number) {
     }
     for (int i = 0; i < number; i++) {
         int num = arr[i];
-        printf("랜덤 단어: %s\n", words[num].meaning);
+        printf("랜덤 단어: %s\n", words[num].word);
 
         char user_input[MAX_LENGTH];
         printf("해당 단어의 뜻을 입력하세요: ");
